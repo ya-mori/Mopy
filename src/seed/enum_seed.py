@@ -10,6 +10,5 @@ class EnumSeed(Seed):
     def generate(self):
         return random.choice(self.values)
 
-
 if __name__ == "__main__":
     pass

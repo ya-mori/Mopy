@@ -30,14 +30,29 @@ class Table:
                     + "("
                     + ", ".join([str(k) for k in record.keys()])
                     + ") VALUES ("
-                    + ", ".join([str(v) for v in record.values()])
+                    + ", ".join([self._str(v) for v in record.values()])
                     + ");"
                 )
                 sqls.append(sql)
             return sqls
+
+    def show_sql(self):
+        if self.records is None:
+            print('data is not exist')
+        else:
+            for query in self.to_sql():
+                print(query)
 
     def _assemble(self, index):
         record = dict()
         for name, seed in self.properties.items():
             record[name] = seed.get(index=index)
         return record
+
+    def _str(self, val):
+        if type(val) is str:
+            return f"'{val}'"
+        elif type(val) is int:
+            return str(val) 
+        else:
+            return str(val)

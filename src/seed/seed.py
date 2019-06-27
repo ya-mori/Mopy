@@ -31,6 +31,9 @@ class Seed(metaclass=ABCMeta):
         """
         pass
 
+    def toStr(self, ):
+        return str()
+
     def _save(self, index, value):
         """
         値をキャッシュに保存します

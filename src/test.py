@@ -11,7 +11,7 @@ if __name__ == "__main__":
     users = Table(
         "users",
         id=PkIntSeed(),
-        age=RandIntSeed(min=0, max=10),
+        age=RandIntSeed(min=0, max=100),
         name=RandStrSeed(size=5),
         birth=RandDateSeed()
     )
@@ -19,14 +19,12 @@ if __name__ == "__main__":
     items = Table(
         "items",
         id=PkIntSeed(),
-        price=RandIntSeed(min=0, max=100),
+        price=RandIntSeed(min=0, max=1000),
         user_id=users("id"),
+        user_name=users("name"),
         type=EnumSeed(["ONE", "TWO", "THERE"]),
-        isActive=RandBoolSeed()
+        is_active=RandBoolSeed()
     )
 
-    for query in users.create(10).to_sql():
-        print(query)
-
-    for query in items.create(10).to_sql():
-        print(query)
+    users.create(7).show_sql()
+    items.create(5).show_sql()
