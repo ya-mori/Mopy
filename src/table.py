@@ -7,8 +7,8 @@ class Table:
     データ構造を保持して、データの生成を行います。
     """
 
-    def __init__(self, table_name, **properties):
-        self.name = table_name 
+    def __init__(self, _table_name, **properties):
+        self.name = _table_name 
         self.properties = Property(properties)
 
     def __call__(self, name):
