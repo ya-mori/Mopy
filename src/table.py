@@ -1,5 +1,6 @@
 from property import Property
 from seed.seed import Seed
+import datetime
 
 class Table:
     """
@@ -54,5 +55,9 @@ class Table:
             return f"'{val}'"
         elif type(val) is int:
             return str(val) 
+        elif type(val) is datetime.date:
+            return f"'{val}'"
+        elif type(val) is datetime.datetime:
+            return f"'{val}'"
         else:
             return str(val)
