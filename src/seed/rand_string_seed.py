@@ -1,5 +1,6 @@
-import random , string
+import random, string
 from seed.seed import Seed
+
 
 class RandStrSeed(Seed):
 
