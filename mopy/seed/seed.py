@@ -9,7 +9,7 @@ class Seed(metaclass=ABCMeta):
 
     def __init__(self):
         self.cache = dict()
-    
+
     def __call__(self, index):
         return self.get(index)
 
@@ -20,7 +20,7 @@ class Seed(metaclass=ABCMeta):
         value = self.cache.get(index)
         if value is None:
             generated = self.generate()
-            self._save(index=index, value=generated)
+            self._save(index=index, value=self.to_str(generated))
             return generated
         else:
             return value
@@ -30,7 +30,14 @@ class Seed(metaclass=ABCMeta):
         """
         値を新たに生成します
         """
-        pass
+        raise NotImplementedError()
+
+    @abstractmethod
+    def to_str(self, value):
+        """
+        値を文字列に変換します
+        """
+        raise NotImplementedError()
 
     def _save(self, index, value):
         """

@@ -1,5 +1,7 @@
-import random, string
-from seed.seed import Seed
+import random
+import string
+
+from mopy.seed.seed import Seed
 
 
 class RandStrSeed(Seed):
@@ -11,8 +13,7 @@ class RandStrSeed(Seed):
     def generate(self):
         return ''.join(
             random.choices(string.ascii_letters + string.digits, k=self.size)
-        ) 
+        )
 
-
-if __name__ == "__main__":
-    pass
+    def to_str(self, value):
+        return f"'{value}'"

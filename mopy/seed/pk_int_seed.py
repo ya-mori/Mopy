@@ -1,5 +1,5 @@
-import random
-from seed.seed import Seed
+from mopy.seed.seed import Seed
+
 
 class PkIntSeed(Seed):
 
@@ -10,6 +10,9 @@ class PkIntSeed(Seed):
     def generate(self):
         self.counter += 1
         return self.counter
+
+    def to_str(self, value):
+        return str(value)
 
 
 if __name__ == "__main__":

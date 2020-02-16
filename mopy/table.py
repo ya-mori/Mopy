@@ -1,6 +1,7 @@
-from property import Property
-from seed.seed import Seed
 import datetime
+
+from mopy.property import Property
+
 
 class Table:
     """
@@ -9,7 +10,7 @@ class Table:
     """
 
     def __init__(self, _table_name, **properties):
-        self.name = _table_name 
+        self.name = _table_name
         self.properties = Property(properties)
 
     def __call__(self, name):
@@ -31,7 +32,7 @@ class Table:
                     + "("
                     + ", ".join([str(k) for k in record.keys()])
                     + ") VALUES ("
-                    + ", ".join([self._str(v) for v in record.values()])
+                    + ", ".join([str(v) for v in record.values()])
                     + ");"
                 )
                 sqls.append(sql)
@@ -49,15 +50,3 @@ class Table:
         for name, seed in self.properties.items():
             record[name] = seed.get(index=index)
         return record
-
-    def _str(self, val):
-        if type(val) is str:
-            return f"'{val}'"
-        elif type(val) is int:
-            return str(val) 
-        elif type(val) is datetime.date:
-            return f"'{val}'"
-        elif type(val) is datetime.datetime:
-            return f"'{val}'"
-        else:
-            return str(val)

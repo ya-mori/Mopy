@@ -1,5 +1,7 @@
 import random
-from seed.seed import Seed
+
+from mopy.seed.seed import Seed
+
 
 class RandIntSeed(Seed):
 
@@ -11,6 +13,5 @@ class RandIntSeed(Seed):
     def generate(self):
         return random.randint(self.min, self.max)
 
-
-if __name__ == "__main__":
-    pass
+    def to_str(self, value):
+        return str(value)

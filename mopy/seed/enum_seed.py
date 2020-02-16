@@ -1,5 +1,7 @@
 import random
-from seed.seed import Seed
+
+from mopy.seed.seed import Seed
+
 
 class EnumSeed(Seed):
 
@@ -10,5 +12,5 @@ class EnumSeed(Seed):
     def generate(self):
         return random.choice(self.values)
 
-if __name__ == "__main__":
-    pass
+    def to_str(self, value):
+        return f"'{value}'"

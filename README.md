@@ -1,9 +1,13 @@
 # Mopy
+
 Simple tool to create mock data
 
-# 使い方
+# Usage
 
-サンプルコード
+## sample
+
+**code**
+
 ``` sample.py
 users = Table(
     "users",
@@ -27,7 +31,8 @@ users.create(7).show_sql()
 items.create(5).show_sql()
 ```
 
-実行結果
+**output**
+
 ``` output.sql
 INSERT INTO users(id, age, name, birth) VALUES (1, 53, 'a3X6w', 1953-07-03);
 INSERT INTO users(id, age, name, birth) VALUES (2, 74, 'g2bqS', 2045-06-05);

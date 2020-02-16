@@ -1,5 +1,7 @@
 import random
-from seed.seed import Seed
+
+from mopy.seed.seed import Seed
+
 
 class RandBoolSeed(Seed):
 
@@ -8,12 +10,10 @@ class RandBoolSeed(Seed):
 
     def generate(self):
         bite = random.randint(0, 1)
-        if bite == 0 :
+        if bite == 0:
             return True
         else:
             return False
-             
 
-
-if __name__ == "__main__":
-    pass
+    def to_str(self, value):
+        return str(value)

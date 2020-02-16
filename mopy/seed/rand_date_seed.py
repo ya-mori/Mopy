@@ -1,10 +1,12 @@
 import datetime
 import random
-from seed.seed import Seed
+
+from mopy.seed.seed import Seed
+
 
 class RandDateSeed(Seed):
 
-    def __init__(self, format=None):
+    def __init__(self, format = None):
         self.format = format
         super().__init__()
 
@@ -14,10 +16,10 @@ class RandDateSeed(Seed):
         day = random.randint(1, 31)
 
         if self.format is None:
-            return datetime.date(year, month, day) 
+            # return datetime.date(year, month, day)
+            return datetime.date(year, month, 1) + datetime.timedelta(days=day)
         else:
             return datetime.date(year, month, day).strftime(self.format)
 
-
-if __name__ == "__main__":
-    pass
+    def to_str(self, value):
+        return f"'{value}'"

@@ -1,10 +1,10 @@
-from table import Table
-from seed.rand_int_seed import RandIntSeed
-from seed.pk_int_seed import PkIntSeed
-from seed.enum_seed import EnumSeed 
-from seed.rand_string_seed import RandStrSeed
-from seed.rand_boolean_seed import RandBoolSeed
-from seed.rand_date_seed import RandDateSeed
+from mopy.table import Table
+from mopy.seed.rand_int_seed import RandIntSeed
+from mopy.seed.pk_int_seed import PkIntSeed
+from mopy.seed.enum_seed import EnumSeed
+from mopy.seed.rand_string_seed import RandStrSeed
+from mopy.seed.rand_boolean_seed import RandBoolSeed
+from mopy.seed.rand_date_seed import RandDateSeed
 
 if __name__ == "__main__":
 
